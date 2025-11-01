@@ -25,7 +25,7 @@
   
   **Leave the CLI behind and allow IAM-CoPilot guide you through your IAM journey with our GUI and GenAI natural language assistant!**
   
-  [Demo](https://iam-copilot.com) • [Features](#key-capabilities) • [Quick Start](#quick-start) 
+  [Demo](https://iam-copilot.com) • [Features](#key-capabilities) • [Quick Start](#quick-start) • [Screenshots](#screenshots)
 
 </div>
 
