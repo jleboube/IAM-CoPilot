@@ -1,0 +1,17 @@
+{
+  "name": "IAM Copilot",
+  "short_name": "IAM Copilot",
+  "description": "AI-Powered AWS IAM Management Platform",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#4F46E5",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
