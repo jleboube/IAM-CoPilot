@@ -1,18 +1,20 @@
 # IAM Copilot
 
-> **AI-Powered AWS IAM Management Platform**
+<div align="center">
+
+**AI-Powered AWS IAM Management Platform**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Docker](https://img.shields.io/badge/Docker-Compose-blue.svg)](https://docs.docker.com/compose/)
 [![Python](https://img.shields.io/badge/Python-3.11-blue.svg)](https://www.python.org/)
 [![React](https://img.shields.io/badge/React-18-blue.svg)](https://reactjs.org/)
 
-<div align="center">
+
   
-  [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker)](https://www.docker.com/)
-  [![Astro](https://img.shields.io/badge/Astro-Powered-FF5D01?style=for-the-badge&logo=astro)](https://astro.build/)
-  [![Tailwind CSS](https://img.shields.io/badge/Tailwind-Styled-06B6D4?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com/)
+  [![Docker](https://img.shields.io/badge/Docker-Friendly-2496ED?style=for-the-badge&logo=docker)](https://www.docker.com/)
   [![Node.js](https://img.shields.io/badge/Node.js-Backend-339933?style=for-the-badge&logo=node.js)](https://nodejs.org/)
+    <!-- [![Astro](https://img.shields.io/badge/Astro-Powered-FF5D01?style=for-the-badge&logo=astro)](https://astro.build/)
+  [![Tailwind CSS](https://img.shields.io/badge/Tailwind-Styled-06B6D4?style=for-the-badge&logo=tailwindcss)](https://tailwindcss.com/) -->
 
   [![GitHub stars](https://img.shields.io/github/stars/jleboube/IAM-CoPilot?style=social)](https://github.com/jleboube/IAM-CoPilot/stargazers)
   [![GitHub forks](https://img.shields.io/github/forks/jleboube/IAM-CoPilot?style=social)](https://github.com/jleboube/IAM-CoPilot/network/members)
@@ -23,7 +25,7 @@
   
   **Leave the CLI behind and allow IAM-CoPilot guide you through your IAM journey with our GUI and GenAI natural language assistant!**
   
-  [Demo](https://iam-copilot.com) • [Features](#key-capabilities) • [Quick Start](#quick-start) • [Roadmap](#roadmap)
+  [Demo](https://iam-copilot.com) • [Features](#key-capabilities) • [Quick Start](#quick-start) 
 
 </div>
 
