@@ -71,9 +71,10 @@
 
 - Docker & Docker Compose
 - AWS Account with:
-  - IAM permissions
+  - IAM permissions (see [FIX-PERMISSIONS.md](FIX-PERMISSIONS.md))
   - Amazon Bedrock access (Claude 3.5 Sonnet)
   - AWS credentials configured
+- Google OAuth Client (see [GOOGLE_OAUTH_DEPLOYMENT_GUIDE.md](GOOGLE_OAUTH_DEPLOYMENT_GUIDE.md))
 
 ### 1. Clone the Repository
 
@@ -95,11 +96,25 @@ nano .env
 **Required environment variables:**
 
 ```bash
+# AWS Configuration
 AWS_ACCESS_KEY_ID=your_access_key_id
 AWS_SECRET_ACCESS_KEY=your_secret_access_key
 AWS_REGION=us-east-1
+
+# Database
 DB_PASSWORD=your_secure_password
-SECRET_KEY=your_secret_key_for_jwt
+
+# Security (for encrypting stored AWS credentials)
+SECRET_KEY=your_secret_key
+
+# Google OAuth
+GOOGLE_CLIENT_ID=your-client-id.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET=your-client-secret
+GOOGLE_REDIRECT_URI=http://localhost:8000/api/v1/auth/google/callback
+
+# Frontend (Google OAuth)
+VITE_API_URL=http://localhost:8000
+VITE_GOOGLE_CLIENT_ID=your-client-id.apps.googleusercontent.com
 ```
 
 **Generate a secure SECRET_KEY:**
@@ -107,6 +122,10 @@ SECRET_KEY=your_secret_key_for_jwt
 ```bash
 openssl rand -hex 32
 ```
+
+**Google OAuth Setup:**
+
+See [GOOGLE_OAUTH_DEPLOYMENT_GUIDE.md](GOOGLE_OAUTH_DEPLOYMENT_GUIDE.md) for detailed instructions on creating a Google OAuth client.
 
 ### 3. Start the Application
 
@@ -142,6 +161,17 @@ docker compose logs -f web
 ```
 
 ## Usage
+
+### Authentication
+
+IAM Copilot uses **Google OAuth** for secure user authentication:
+
+1. Navigate to http://localhost:3000
+2. Click "Sign in with Google"
+3. Authenticate with your Google account
+4. You'll be redirected to the dashboard
+
+All users have their own isolated AWS credentials and audit logs. See [GOOGLE_OAUTH_DEPLOYMENT_GUIDE.md](GOOGLE_OAUTH_DEPLOYMENT_GUIDE.md) for production deployment.
 
 ### Generate a Policy
 
