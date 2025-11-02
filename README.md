@@ -27,6 +27,8 @@
   
   [Demo](https://iam-copilot.com) • [Features](#key-capabilities) • [Quick Start](#quick-start) • [Screenshots](#screenshots)
 
+  [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/muscl3n3rd)
+
 </div>
 
 **IAM Copilot** is a developer-first, AI-powered platform that simplifies AWS IAM management. Generate policies from plain English, audit permissions, visualize access graphs, and enforce least-privilege principles—all powered by Amazon Bedrock (Claude 3.5 Sonnet).
@@ -64,14 +66,39 @@
 
 ### Screenshots
 
+Dashboard - Your landing page for IAM CoPilot
+
 ![Alt text](docs/IC-SC1.png "IAM CoPilot Dashboard")
+
+Generate IAM Policies with natural language using GenAI.  Tell the prompt what you are trying to accomplish and let it produce the policy for you.
+
 ![Alt text](docs/IC-SC2.png "IAM CoPilot Generate Policy")
+
+Everyone loves IAM audits, said no one, ever.  However, IAM CoPilot aims to make IAM audits less painful.  At a minimum, using our GUI takes 3%* of the stress away from the process. *Claims have not been verified by independent thrid party.
+
 ![Alt text](docs/IC-SC3.png "IAM CoPilot Audit")
+
+Let IAM CoPilot create interactive Access Graphs for your use cases.  See exactly how access is mapped for a given AWS ID.
+
 ![Alt text](docs/IC-SC4.png "IAM CoPilot Access Graph")
-![Alt text](docs/IC-SC5.png "IAM CoPilot Identity Center")
-![Alt text](docs/IC-SC6.png "IAM CoPilot Organizations")
-![Alt text](docs/IC-SC7.png "IAM CoPilot API Docs")
+
+IAM is bad enough, why'd you have to add Identity Center too?!?  Well, we are trying to remove all of the end user's pain and obfuscate the ins and outs of interacting with AWS IAM APIs.  
+
+Here is a sample Access Graph created by IAM CoPilot.  Check it out.  A bunch of colored circles with a bunch of text under the circles.  Fun!
+
 ![Alt text](docs/IAM-Copilot4.png "IAM CoPilot Generated Access Graph")
+
+![Alt text](docs/IC-SC5.png "IAM CoPilot Identity Center")
+
+Yes!  We support AWS Organizations too!  In order to effectively take the pain out of AWS IAM, we included AWS Organizations in the party.
+
+![Alt text](docs/IC-SC6.png "IAM CoPilot Organizations")
+
+We got API docs!
+
+![Alt text](docs/IC-SC7.png "IAM CoPilot API Docs")
+
+
 
 ## Architecture
 
