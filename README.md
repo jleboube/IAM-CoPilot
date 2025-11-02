@@ -4,7 +4,6 @@
 
 **AI-Powered AWS IAM Management Platform**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Docker](https://img.shields.io/badge/Docker-Compose-blue.svg)](https://docs.docker.com/compose/)
 [![Python](https://img.shields.io/badge/Python-3.11-blue.svg)](https://www.python.org/)
 [![React](https://img.shields.io/badge/React-18-blue.svg)](https://reactjs.org/)
