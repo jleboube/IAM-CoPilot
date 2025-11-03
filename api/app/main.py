@@ -17,9 +17,9 @@ from app.routers import (
     api_monitoring,
     iam_api_update_agent,
     policy_validation,
-    auth,
-    settings
+    auth
 )
+from app.routers import settings as settings_router
 
 # Configure structured logging
 structlog.configure(
@@ -98,7 +98,7 @@ async def root():
 
 # Include routers
 app.include_router(auth.router)  # Auth router (has its own prefix)
-app.include_router(settings.router)  # Settings router (has its own prefix)
+app.include_router(settings_router.router)  # Settings router (has its own prefix)
 app.include_router(policy.router, prefix=settings.api_v1_prefix)
 app.include_router(iam_management.router, prefix=settings.api_v1_prefix)
 app.include_router(identity_center.router, prefix=settings.api_v1_prefix)

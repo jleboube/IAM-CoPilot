@@ -49,6 +49,8 @@ class UserSettingsCreate(BaseModel):
 
 class BedrockModelOption(BaseModel):
     """Available Bedrock model option."""
+    model_config = {"protected_namespaces": ()}
+
     model_id: str = Field(..., description="Model ID or inference profile ARN")
     display_name: str = Field(..., description="Human-readable name")
     description: str = Field(..., description="Model description")
