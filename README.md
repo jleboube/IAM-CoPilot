@@ -98,6 +98,18 @@ We got API docs!
 
 ![Alt text](docs/IC-SC7.png "IAM CoPilot API Docs")
 
+NEW - Settings added!!!  Choose which Bedrock model, Max tokens, and Temperature.
+
+![Alt text](docs/IC-SC9.png "IAM CoPilot Bedrock Model Choice")
+
+NEW - Settings added!!!  Choose your preferred AWS region and default output format.
+
+![Alt text](docs/IC-SC10.png "AWS region and default output format")
+
+NEW - Settings added!!!  Include your AWS credentials for your organization.
+
+![Alt text](docs/IC-SC11.png "AWS credentials")
+
 
 
 ## Architecture
