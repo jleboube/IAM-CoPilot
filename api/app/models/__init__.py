@@ -12,6 +12,7 @@ from app.models.iam_api_update_agent import (
     ChangeType as AgentChangeType
 )
 from app.models.user import User, UserAWSCredentials, RefreshToken, AuditLog
+from app.models.user_settings import UserSettings
 
 __all__ = [
     "Policy",
@@ -31,5 +32,6 @@ __all__ = [
     "User",
     "UserAWSCredentials",
     "RefreshToken",
-    "AuditLog"
+    "AuditLog",
+    "UserSettings"
 ]

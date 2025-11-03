@@ -12,6 +12,7 @@ import structlog
 from app.database import get_db
 from app.services.auth_service import AuthService
 from app.models.user import User, UserAWSCredentials
+from app.models.user_settings import UserSettings
 
 logger = structlog.get_logger()
 
@@ -232,3 +233,34 @@ def optional_authentication(
 
     user = db.query(User).filter(User.id == user_id_int).first()
     return user if user and user.is_active else None
+
+
+def get_user_settings(
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+) -> UserSettings:
+    """
+    Get current user's settings.
+
+    If user has no settings, creates default settings automatically.
+
+    Args:
+        current_user: Current authenticated user
+        db: Database session
+
+    Returns:
+        User settings
+    """
+    # Try to get existing settings
+    user_settings = db.query(UserSettings).filter(
+        UserSettings.user_id == current_user.id
+    ).first()
+
+    # Create default settings if none exist
+    if not user_settings:
+        user_settings = UserSettings(user_id=current_user.id)
+        db.add(user_settings)
+        db.commit()
+        db.refresh(user_settings)
+
+    return user_settings

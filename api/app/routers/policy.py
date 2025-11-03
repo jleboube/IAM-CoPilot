@@ -7,6 +7,7 @@ import structlog
 
 from app.database import get_db
 from app.models.policy import Policy, PolicyAudit, AuditStatus
+from app.models.user_settings import UserSettings
 from app.schemas.policy import (
     PolicyGenerateRequest,
     PolicyGenerateResponse,
@@ -19,6 +20,7 @@ from app.schemas.policy import (
 from app.services.iam_service import IAMService
 from app.services.bedrock_service import BedrockService
 from app.services.audit_service import AuditService
+from app.dependencies import get_user_settings
 
 logger = structlog.get_logger(__name__)
 router = APIRouter(prefix="/policies", tags=["policies"])
@@ -27,7 +29,8 @@ router = APIRouter(prefix="/policies", tags=["policies"])
 @router.post("/generate", response_model=PolicyGenerateResponse, status_code=status.HTTP_201_CREATED)
 async def generate_policy(
     request: PolicyGenerateRequest,
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    user_settings: UserSettings = Depends(get_user_settings)
 ):
     """
     Generate an IAM policy from natural language description using Amazon Bedrock
@@ -35,8 +38,13 @@ async def generate_policy(
     try:
         logger.info("policy_generation_requested", description=request.description[:100])
 
-        # Initialize services
-        bedrock_service = BedrockService()
+        # Initialize services with user-specific settings
+        bedrock_service = BedrockService(
+            model_id=user_settings.bedrock_model_id,
+            max_tokens=user_settings.bedrock_max_tokens,
+            temperature=user_settings.bedrock_temperature,
+            aws_region=user_settings.default_aws_region
+        )
         iam_service = IAMService()
 
         # Generate policy using Bedrock

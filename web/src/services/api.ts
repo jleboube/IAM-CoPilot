@@ -17,6 +17,12 @@ import type {
   OrganizationsRequest,
   OrganizationsOverview,
   OrganizationsAuditResult,
+  UserSettings,
+  UserSettingsUpdate,
+  BedrockModelsResponse,
+  AWSCredentialsCreate,
+  AWSCredentialsUpdate,
+  AWSCredentialsResponse,
 } from '../types';
 
 class APIClient {
@@ -122,6 +128,52 @@ class APIClient {
 
   async auditOrganizations(request: OrganizationsRequest): Promise<OrganizationsAuditResult> {
     const response = await this.client.post('/api/v1/organizations/audit', request);
+    return response.data;
+  }
+
+  // Settings endpoints
+  async getUserSettings(): Promise<UserSettings> {
+    const response = await this.client.get('/api/v1/settings');
+    return response.data;
+  }
+
+  async updateUserSettings(settings: UserSettingsUpdate): Promise<UserSettings> {
+    const response = await this.client.put('/api/v1/settings', settings);
+    return response.data;
+  }
+
+  async resetUserSettings(): Promise<UserSettings> {
+    const response = await this.client.post('/api/v1/settings/reset');
+    return response.data;
+  }
+
+  async getAvailableModels(): Promise<BedrockModelsResponse> {
+    const response = await this.client.get('/api/v1/settings/models');
+    return response.data;
+  }
+
+  // AWS Credentials endpoints
+  async getAWSCredentials(): Promise<AWSCredentialsResponse[]> {
+    const response = await this.client.get('/api/v1/auth/aws-credentials');
+    return response.data;
+  }
+
+  async createAWSCredentials(credentials: AWSCredentialsCreate): Promise<AWSCredentialsResponse> {
+    const response = await this.client.post('/api/v1/auth/aws-credentials', credentials);
+    return response.data;
+  }
+
+  async updateAWSCredentials(id: number, credentials: AWSCredentialsUpdate): Promise<AWSCredentialsResponse> {
+    const response = await this.client.put(`/api/v1/auth/aws-credentials/${id}`, credentials);
+    return response.data;
+  }
+
+  async deleteAWSCredentials(id: number): Promise<void> {
+    await this.client.delete(`/api/v1/auth/aws-credentials/${id}`);
+  }
+
+  async setDefaultAWSCredentials(id: number): Promise<AWSCredentialsResponse> {
+    const response = await this.client.post(`/api/v1/auth/aws-credentials/${id}/set-default`);
     return response.data;
   }
 }

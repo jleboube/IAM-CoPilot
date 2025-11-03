@@ -27,7 +27,7 @@ class Settings(BaseSettings):
     aws_session_token: str | None = None
 
     # Bedrock
-    bedrock_model_id: str = "anthropic.claude-3-5-sonnet-20241022-v2:0"
+    bedrock_model_id: str = "us.anthropic.claude-3-5-sonnet-20241022-v2:0"
     bedrock_max_tokens: int = 4096
     bedrock_temperature: float = 0.0
 

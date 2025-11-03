@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { Toaster } from 'react-hot-toast';
 import toast from 'react-hot-toast';
-import { Shield, Home, FileText, Activity, GitBranch, Users, Building2, LogOut, User as UserIcon } from 'lucide-react';
+import { Shield, Home, FileText, Activity, GitBranch, Users, Building2, Settings, LogOut, User as UserIcon } from 'lucide-react';
 import { useAuthStore } from './store/authStore';
 import { logout as apiLogout } from './services/api';
 import Dashboard from './components/Dashboard';
@@ -11,6 +11,7 @@ import AuditView from './components/AuditView';
 import AccessGraphView from './components/AccessGraphView';
 import IdentityCenterView from './components/IdentityCenterView';
 import OrganizationsView from './components/OrganizationsView';
+import SettingsView from './components/SettingsView';
 import Login from './components/Login';
 import ProtectedRoute from './components/ProtectedRoute';
 
@@ -70,6 +71,7 @@ function MainLayout() {
               <NavLink to="/graph" icon={<GitBranch size={18} />} text="Access Graph" />
               <NavLink to="/identity-center" icon={<Users size={18} />} text="Identity Center" />
               <NavLink to="/organizations" icon={<Building2 size={18} />} text="Organizations" />
+              <NavLink to="/settings" icon={<Settings size={18} />} text="Settings" />
 
               {/* User Menu */}
               <div className="flex items-center space-x-3 ml-6 pl-6 border-l border-gray-700">
@@ -112,6 +114,7 @@ function MainLayout() {
           <Route path="/graph" element={<AccessGraphView />} />
           <Route path="/identity-center" element={<IdentityCenterView />} />
           <Route path="/organizations" element={<OrganizationsView />} />
+          <Route path="/settings" element={<SettingsView />} />
         </Routes>
       </main>
 

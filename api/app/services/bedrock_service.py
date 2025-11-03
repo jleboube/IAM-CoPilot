@@ -17,15 +17,29 @@ settings = get_settings()
 class BedrockService:
     """Service for Amazon Bedrock AI operations"""
 
-    def __init__(self):
-        """Initialize Bedrock service"""
+    def __init__(
+        self,
+        model_id: str | None = None,
+        max_tokens: int | None = None,
+        temperature: float | None = None,
+        aws_region: str | None = None
+    ):
+        """
+        Initialize Bedrock service.
+
+        Args:
+            model_id: Bedrock model ID (uses user settings or global config if not provided)
+            max_tokens: Maximum tokens (uses user settings or global config if not provided)
+            temperature: Model temperature (uses user settings or global config if not provided)
+            aws_region: AWS region (uses user settings or global config if not provided)
+        """
         self.bedrock_runtime = boto3.client(
             'bedrock-runtime',
-            region_name=settings.aws_region
+            region_name=aws_region or settings.aws_region
         )
-        self.model_id = settings.bedrock_model_id
-        self.max_tokens = settings.bedrock_max_tokens
-        self.temperature = settings.bedrock_temperature
+        self.model_id = model_id or settings.bedrock_model_id
+        self.max_tokens = max_tokens or settings.bedrock_max_tokens
+        self.temperature = temperature or settings.bedrock_temperature
 
     @retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=2, max=10))
     def generate_policy_from_nl(

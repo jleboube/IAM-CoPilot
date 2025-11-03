@@ -10,6 +10,13 @@ from app.schemas.policy import (
     AuditResponse,
     AuditResultResponse,
 )
+from app.schemas.settings import (
+    UserSettingsResponse,
+    UserSettingsUpdate,
+    UserSettingsCreate,
+    BedrockModelOption,
+    BedrockModelsResponse,
+)
 
 __all__ = [
     "PolicyGenerateRequest",
@@ -19,4 +26,9 @@ __all__ = [
     "AuditRequest",
     "AuditResponse",
     "AuditResultResponse",
+    "UserSettingsResponse",
+    "UserSettingsUpdate",
+    "UserSettingsCreate",
+    "BedrockModelOption",
+    "BedrockModelsResponse",
 ]

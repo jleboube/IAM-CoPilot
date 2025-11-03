@@ -366,3 +366,70 @@ export interface OrganizationsAuditResult {
   stats?: OrganizationsAuditStats;
   summary?: OrganizationsAuditSummary;
 }
+
+// Settings Types
+export interface UserSettings {
+  id: number;
+  user_id: number;
+  bedrock_model_id: string;
+  bedrock_max_tokens: number;
+  bedrock_temperature: number;
+  default_aws_region: string;
+  default_aws_output_format: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface UserSettingsUpdate {
+  bedrock_model_id?: string;
+  bedrock_max_tokens?: number;
+  bedrock_temperature?: number;
+  default_aws_region?: string;
+  default_aws_output_format?: string;
+}
+
+export interface BedrockModelOption {
+  model_id: string;
+  display_name: string;
+  description: string;
+  max_tokens: number;
+}
+
+export interface BedrockModelsResponse {
+  models: BedrockModelOption[];
+}
+
+export interface AWSCredentialsCreate {
+  label: string;
+  access_key_id: string;
+  secret_access_key: string;
+  session_token?: string;
+  aws_region?: string;
+  aws_account_id?: string;
+  is_default?: boolean;
+  cross_account_role_arn?: string;
+}
+
+export interface AWSCredentialsUpdate {
+  label?: string;
+  access_key_id?: string;
+  secret_access_key?: string;
+  session_token?: string;
+  aws_region?: string;
+  aws_account_id?: string;
+  is_default?: boolean;
+  cross_account_role_arn?: string;
+}
+
+export interface AWSCredentialsResponse {
+  id: number;
+  user_id: number;
+  label: string;
+  aws_region: string;
+  aws_account_id?: string;
+  is_default: boolean;
+  created_at: string;
+  updated_at: string;
+  last_used?: string;
+  cross_account_role_arn?: string;
+}
