@@ -27,12 +27,12 @@ export default function ProtectedRoute({ children }: ProtectedRouteProps) {
     };
 
     // Only check if we don't already have a user
-    if (!isAuthenticated && !isLoading) {
+    if (!isAuthenticated) {
       checkAuth();
     } else {
       setLoading(false);
     }
-  }, [isAuthenticated, isLoading, setUser, setLoading]);
+  }, [isAuthenticated, setUser, setLoading]);
 
   // Show loading state
   if (isLoading) {
